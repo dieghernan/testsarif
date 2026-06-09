@@ -13,3 +13,13 @@ bar <- function(y) {
   }
   y
 }
+
+# jarl-ignore-start unused_function: Testing errors
+another <- function(x) {
+  if (any(is.na(x))) {
+    x <- 2
+  }
+  stop("Here")
+  print(x)
+}
+# jarl-ignore-end unused_function

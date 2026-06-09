@@ -10,7 +10,7 @@ foo <- function(x) {
 # jarl-ignore-end unused_function
 bar <- function(x) {
   # Silly function to trigger jarl errors.
-  if (x) {
+  if (any(is.na(x))) {
     print("TRUE")
   } else {
     igoR::igo_search("a")

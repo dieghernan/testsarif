@@ -22,15 +22,8 @@ permissions:
 
 jobs:
   jarl:
-    runs-on: ${{ matrix.config.os }}
-    name: ${{ matrix.config.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-        - {os: windows-latest}
-        - {os: macOS-latest}
-        - {os: ubuntu-latest}
+    name: Run jarl scanning
+    runs-on: ubuntu-latest
 
     permissions:
       contents: read
@@ -73,11 +66,10 @@ jobs:
       with:
         sarif_file: jarl-results.sarif
         wait-for-processing: true
-        category: ${{ matrix.config.os }}
       continue-on-error: true
 
     - uses: actions/upload-artifact@v7
       with:
-        name: jarl-results-${{ matrix.config.os }}
+        name: jarl-results
         path: jarl-results.sarif
         if-no-files-found: warn

@@ -22,8 +22,15 @@ permissions:
 
 jobs:
   jarl:
-    name: Run jarl scanning
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - {os: windows-latest}
+        - {os: macOS-latest}
+        - {os: ubuntu-latest}
 
     permissions:
       contents: read
@@ -50,7 +57,7 @@ jobs:
 
     - name: Install jarl branch
       run: |
-        cargo install jarl  --git https://github.com/etiennebacher/jarl --branch sarif
+        cargo install jarl  --git https://github.com/dieghernan/jarl --branch sarif
 
     - name: jarl version
       run: |
@@ -66,10 +73,11 @@ jobs:
       with:
         sarif_file: jarl-results.sarif
         wait-for-processing: true
+        category: ${{ matrix.config.os }}
       continue-on-error: true
 
     - uses: actions/upload-artifact@v7
       with:
-        name: jarl-results
+        name: jarl-results-${{ matrix.config.os }}
         path: jarl-results.sarif
         if-no-files-found: warn

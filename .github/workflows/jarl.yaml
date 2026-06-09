@@ -11,13 +11,6 @@ on:
     - main
     - master
   workflow_dispatch:
-    inputs:
-      os:
-        description: |
-          OS to check. Use "ubuntu", "windows" or "macOS".
-        default: "ubuntu"
-        required: false
-        type: string
   pull_request:
     # The branches below must be a subset of the branches above
     branches:
@@ -30,7 +23,7 @@ permissions:
 jobs:
   jarl:
     name: Run jarl scanning
-    runs-on: ${{ inputs.os }}-latest
+    runs-on: ubuntu-latest
 
     permissions:
       contents: read

@@ -23,7 +23,7 @@ permissions:
 jobs:
   jarl:
     name: Run jarl scanning
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     permissions:
       contents: read
@@ -50,7 +50,7 @@ jobs:
 
     - name: Install jarl branch
       run: |
-        cargo install jarl  --git https://github.com/etiennebacher/jarl --branch sarif
+        cargo install jarl  --git https://github.com/etiennebacherdieghernan/jarl --branch sarif
 
     - name: jarl version
       run: |

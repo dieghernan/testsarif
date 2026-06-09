@@ -50,7 +50,7 @@ jobs:
 
     - name: Install jarl branch
       run: |
-        cargo install jarl  --git https://github.com/etiennebacherdieghernan/jarl --branch sarif
+        cargo install jarl  --git https://github.com/dieghernan/jarl --branch sarif
 
     - name: jarl version
       run: |

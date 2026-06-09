@@ -13,3 +13,10 @@ bar <- function(y) {
   }
   y
 }
+
+foobar <- function(y) {
+  if (any(is.na(y))) {
+    y <- 2
+  }
+  y
+}

@@ -23,7 +23,7 @@ permissions:
 jobs:
   jarl:
     name: Run jarl scanning
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     permissions:
       contents: read

@@ -8,3 +8,9 @@ foo <- function(x) {
   }
 }
 
+bar <- function(y) {
+  if (anyNA(y)) {
+    y <- 2
+  }
+  y
+}

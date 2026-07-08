@@ -1,4 +1,4 @@
-# jarl-ignore-start unused_function: This is a test
+
 foo <- function(x) {
   # Silly function to trigger jarl errors.
   if (x) {
@@ -7,4 +7,4 @@ foo <- function(x) {
     igoR::igo_search("a")
   }
 }
-# jarl-ignore-end unused_function
+
